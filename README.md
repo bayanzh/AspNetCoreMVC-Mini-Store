@@ -52,7 +52,9 @@ Mini-Store
 
 ### 📂 صفحة المنتجات
 
-![Products](Screenshots/Products.png)
+![Products](Screenshots/Products1.png)
+![Products](Screenshots/Products2.png)
+
 
 ### 📄 صفحة تفاصيل المنتج
 
