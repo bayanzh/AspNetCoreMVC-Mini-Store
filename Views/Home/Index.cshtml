@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "الرئيسية";
+
+    var categories = ViewBag.Categories;
+    var products = ViewBag.Products;
+}
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center gy-5">
+
+            <div class="col-lg-6">
+                <h1>
+                    تسوق أفضل المنتجات
+                    <span>بأفضل الأسعار</span>
+                </h1>
+
+                <p class="lead">
+                    اكتشف أحدث الإلكترونيات والملابس والكتب في متجرنا
+                    مع جودة عالية وأسعار تنافسية.
+                </p>
+
+                <a href="#products" class="btn btn-shop btn-lg">
+                    ابدأ التسوق
+                </a>
+            </div>
+
+            <div class="col-lg-6 text-center">
+                <img src="~/images/shopping.png"
+                     class="img-fluid"
+                     alt="Shopping">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Categories -->
+<section class="container">
+    <div class="section-title">
+        <h2>تصفح الفئات</h2>
+        <hr>
+    </div>
+
+    <div class="row g-4">
+
+        @foreach (var item in categories)
+        {
+            <div class="col-md-4">
+
+                <div class="category-card">
+
+                    <i class="@item.Icon"></i>
+
+                    <h4>@item.Name</h4>
+
+                    <p class="text-muted">
+                        تصفح جميع منتجات القسم
+                    </p>
+
+                    <a asp-action="Products"
+                       asp-route-id="@item.Id"
+                       class="btn btn-primary">
+                        عرض المنتجات
+                    </a>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section class="container" id="products">
+
+    <div class="section-title">
+        <h2>منتجات مميزة</h2>
+        <hr>
+    </div>
+
+    <div class="row g-4">
+
+        @foreach (var item in products)
+        {
+            <div class="col-lg-3 col-md-6">
+
+                <div class="card product-card h-100">
+
+                    <img src="~/images/@item.Image"
+                         class="card-img-top"
+                         alt="@item.Name">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <h5 class="fw-bold">
+                            @item.Name
+                        </h5>
+
+                        <p class="text-muted flex-grow-1">
+                            @item.Description
+                        </p>
+
+                        <div class="price mb-3">
+                            @item.Price ر.س
+                        </div>
+
+                        <a asp-action="Details"
+                           asp-route-id="@item.Id"
+                           class="btn btn-outline-primary btn-details">
+                            عرض التفاصيل
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</section>

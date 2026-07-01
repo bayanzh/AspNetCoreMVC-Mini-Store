@@ -1,0 +1,134 @@
+@{
+    ViewData["Title"] = "تفاصيل المنتج";
+
+    var product = ViewBag.Product;
+}
+
+<div class="container py-5">
+
+    <div class="details-card">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-5 text-center">
+
+                <img src="~/images/@product.Image"
+                     class="img-fluid rounded"
+                     alt="@product.Name">
+
+            </div>
+
+            <div class="col-lg-7">
+
+                <span class="badge bg-primary mb-3">
+
+                    منتج مميز
+
+                </span>
+
+                <h2 class="fw-bold mb-3">
+
+                    @product.Name
+
+                </h2>
+
+                <div class="mb-3 text-warning">
+
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+
+                    <span class="text-dark me-2">
+                        (4.8)
+                    </span>
+
+                </div>
+
+                <h2 class="details-price mb-4">
+
+                    @product.Price ر.س
+
+                </h2>
+
+                <p class="text-muted fs-5">
+
+                    @product.Description
+
+                </p>
+
+                <hr>
+
+                <div class="row text-center mb-4">
+
+                    <div class="col">
+
+                        <i class="fa-solid fa-truck-fast fs-2 text-primary"></i>
+
+                        <p class="mt-2">
+                            شحن سريع
+                        </p>
+
+                    </div>
+
+                    <div class="col">
+
+                        <i class="fa-solid fa-shield-halved fs-2 text-success"></i>
+
+                        <p class="mt-2">
+                            ضمان الجودة
+                        </p>
+
+                    </div>
+
+                    <div class="col">
+
+                        <i class="fa-solid fa-rotate-left fs-2 text-danger"></i>
+
+                        <p class="mt-2">
+                            استرجاع مجاني
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex gap-3">
+
+                    <button class="btn btn-success btn-lg px-5">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        أضف إلى السلة
+
+                    </button>
+
+                    <button class="btn btn-outline-danger btn-lg">
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </button>
+
+                </div>
+
+                <div class="mt-4">
+
+                    <a asp-action="Index"
+                       class="btn btn-outline-secondary">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                        العودة للرئيسية
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
