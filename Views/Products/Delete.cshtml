@@ -1,0 +1,74 @@
+@model Mini_Store.Models.Product
+
+@{
+    ViewData["Title"] = "حذف المنتج";
+}
+
+<div class="container py-5" dir="rtl">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-6">
+
+            <div class="card dashboard-card">
+
+                <div class="dashboard-header bg-danger">
+
+                    <h4 class="mb-0">
+                        حذف المنتج
+                    </h4>
+
+                </div>
+
+                <div class="card-body p-4 text-center">
+
+                    <h5 class="mb-4">
+                        هل أنت متأكد من حذف هذا المنتج؟
+                    </h5>
+
+                    <div class="mb-4">
+
+                        <img src="~/Images/@Model.Image"
+                             class="product-image mb-3" />
+
+                        <h4>@Model.Name</h4>
+
+                        <p class="text-success fw-bold">
+                            @Model.Price ر.س
+                        </p>
+
+                    </div>
+
+                    <form asp-action="Delete">
+
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="d-flex justify-content-center gap-2">
+
+                            <a asp-action="Index"
+                               class="btn btn-outline-secondary">
+
+                                إلغاء
+
+                            </a>
+
+                            <button type="submit"
+                                    class="btn btn-danger">
+
+                                حذف المنتج
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

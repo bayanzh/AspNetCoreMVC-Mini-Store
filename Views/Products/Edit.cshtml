@@ -1,0 +1,146 @@
+@model Mini_Store.Models.Product
+
+@{
+    ViewData["Title"] = "تعديل المنتج";
+}
+
+<div class="container py-5" dir="rtl">
+
+    <div class="row mb-4">
+
+        <div class="col">
+
+            <h2 class="dashboard-title">تعديل المنتج</h2>
+
+            <p class="page-description">
+                يمكنك تعديل بيانات المنتج ثم حفظ التغييرات.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="card dashboard-card">
+
+        <div class="dashboard-header">
+
+            <h5 class="mb-0">
+                بيانات المنتج
+            </h5>
+
+        </div>
+
+        <div class="card-body p-4">
+
+            <form asp-action="Edit" method="post">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="row">
+
+                    <!-- اسم المنتج -->
+                    <div class="col-md-6 mb-4">
+
+                        <label asp-for="Name" class="form-label fw-semibold">
+                            اسم المنتج
+                        </label>
+
+                        <input asp-for="Name"
+                               class="form-control"
+                               placeholder="أدخل اسم المنتج" />
+
+                        <span asp-validation-for="Name" class="text-danger"></span>
+
+                    </div>
+
+                    <!-- السعر -->
+                    <div class="col-md-6 mb-4">
+
+                        <label asp-for="Price" class="form-label fw-semibold">
+                            السعر
+                        </label>
+
+                        <input asp-for="Price"
+                               class="form-control"
+                               placeholder="أدخل سعر المنتج" />
+
+                        <span asp-validation-for="Price" class="text-danger"></span>
+
+                    </div>
+
+                    <!-- الفئة -->
+                    <div class="col-md-6 mb-4">
+
+                        <label asp-for="CategoryId" class="form-label fw-semibold">
+                            الفئة
+                        </label>
+
+                        <select asp-for="CategoryId"
+                                asp-items="ViewBag.Categories"
+                                class="form-select">
+
+                            <option value="">-- اختر الفئة --</option>
+
+                        </select>
+
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+
+                    </div>
+
+                    <!-- الصورة -->
+                    <div class="col-md-6 mb-4">
+
+                        <label asp-for="Image" class="form-label fw-semibold">
+                            اسم الصورة
+                        </label>
+
+                        <input asp-for="Image"
+                               class="form-control"
+                               placeholder="مثال : iphone.png" />
+
+                        <span asp-validation-for="Image" class="text-danger"></span>
+
+                        <small class="text-muted">
+                            ضع اسم الصورة الموجودة داخل مجلد Images.
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="d-flex justify-content-end gap-2">
+
+                    <a asp-action="Index"
+                       class="btn btn-outline-secondary px-4">
+
+                        رجوع
+
+                    </a>
+
+                    <button type="submit"
+                            class="btn btn-primary px-4">
+
+                        حفظ التعديلات
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

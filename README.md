@@ -1,22 +1,38 @@
 # 🛍️ Mini Store
 
-متجر إلكتروني مصغر تم تطويره باستخدام **ASP.NET Core MVC** و **Bootstrap 5**، ويهدف إلى تطبيق مفاهيم إطار العمل مثل الـ Controllers و Views و Routing مع تصميم واجهة حديثة ومتجاوبة.
-
+متجر إلكتروني مصغر تم تطويره باستخدام **ASP.NET Core MVC** و **Entity Framework Core** و **SQL Server**، ويهدف إلى تطبيق مفاهيم MVC وبناء لوحة تحكم متكاملة لإدارة المنتجات مع واجهة حديثة باستخدام Bootstrap 5.
 
 ![Mini Store](Screenshots/Mini-Store.jpg)
+
 ---
 
-## 📖 نبذة عن المشروع
+# 📖 نبذة عن المشروع
 
-يتيح التطبيق للمستخدم:
+يحتوي المشروع على متجر إلكتروني لعرض المنتجات بالإضافة إلى لوحة تحكم (Dashboard) لإدارة المنتجات وربطها بالفئات باستخدام قاعدة بيانات SQL Server.
 
-- تصفح فئات المنتجات.
-- عرض المنتجات حسب الفئة.
+يمكن للمستخدم:
+
+- تصفح المنتجات.
 - البحث عن المنتجات.
-- عرض تفاصيل كل منتج.
-- استعراض صفحات ثابتة مثل (حول الشركة) و(اتصل بنا).
-- تجربة واجهة مستخدم حديثة ومتجاوبة مع مختلف الأجهزة.
+- عرض تفاصيل المنتج.
+- تصفح الصفحات الثابتة.
+- إدارة المنتجات من لوحة التحكم.
 
+---
+
+#  المميزات
+
+-  عرض جميع المنتجات.
+-  عرض تفاصيل المنتج.
+-  إضافة منتج جديد.
+-  تعديل بيانات المنتج.
+-  حذف منتج مع رسالة تأكيد.
+-  تصنيف المنتجات حسب الفئة.
+-  One-to-Many Relationship بين Products و Categories.
+-  البحث عن المنتجات بالاسم.
+-  Server-side Validation باستخدام Data Annotations.
+-  دعم رفع صور المنتجات.
+-  واجهة حديثة ومتجاوبة باستخدام Bootstrap 5.
 
 ---
 
@@ -27,57 +43,106 @@
 Mini-Store
 │
 ├── Controllers
+│   ├── HomeController.cs
+│   └── ProductsController.cs
+│
+├── Data
+│   └── AppDbContext.cs
+│
+├── Migrations
+│
 ├── Models
+│   ├── Category.cs
+│   └── Product.cs
+│
 ├── Properties
-├── Views
-├── wwwroot
+│
 ├── Screenshots
-│   ├── Home.png
-│   ├── Products.png
-│   ├── Details.png
-│   ├── About.png
-│   └── Contact.png
-├── README.md
+│   
+├── Views
+│   ├── Home
+│   ├── Products
+│   └── Shared
+│
+├── wwwroot
+│   ├── css
+│   ├── Images
+│   ├── js
+│   └── lib
+│
+├── appsettings.json
 ├── Program.cs
-└── Mini_Store.csproj
+├── Mini-Store.csproj
+└── README.md
 ```
+--- 
 
----
+# 📸 Screenshots
 
-
-
-### 🏠 الصفحة الرئيسية
+## 🏠 الصفحة الرئيسية
 
 ![Home](Screenshots/Home.png)
 
-### 📂 صفحة المنتجات
+---
+
+## 📂 صفحة المنتجات
 
 ![Products](Screenshots/Products1.png)
+
 ![Products](Screenshots/Product2.png)
 
+---
 
-### 📄 صفحة تفاصيل المنتج
+## 📄 صفحة تفاصيل المنتج
 
 ![Details](Screenshots/Details.png)
 
-### 🏢 صفحة حول الشركة
+---
+---
+
+## 🏢 صفحة حول الشركة
 
 ![About](Screenshots/About.png)
 
-### 📞 صفحة اتصل بنا
+---
+
+## 📞 صفحة اتصل بنا
 
 ![Contact](Screenshots/Contact.png)
 
----
+## 📊 لوحة التحكم
 
-## 🛠️ التقنيات المستخدمة
-
-- ASP.NET Core MVC
-- C#
-- Views
-- Bootstrap 5
-- HTML5
-- CSS3
-
+![Dashboard](Screenshots/Dashboard.png)
 
 ---
+
+## ➕ إضافة منتج
+
+![Create](Screenshots/Create.png)
+
+---
+
+## ✏️ تعديل منتج
+
+![Edit](Screenshots/Edit.png)
+
+---
+
+## 🗑️ حذف منتج
+
+![Delete](Screenshots/Delete.png)
+
+---
+
+## 🔍 البحث عن المنتجات
+
+![Search](Screenshots/Search.png)
+
+---
+
+## ✅ التحقق من صحة البيانات
+
+![Validation](Screenshots/Validation.png)
+
+
+
