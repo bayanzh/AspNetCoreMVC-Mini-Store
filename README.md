@@ -98,6 +98,10 @@ Mini-Store
 ![Details](Screenshots/Details.png)
 
 ---
+## 🔍 البحث عن المنتجات
+
+![Search](Screenshots/Search.png)
+
 ---
 
 ## 🏢 صفحة حول الشركة
@@ -136,13 +140,13 @@ Mini-Store
 
 ## 🔍 البحث عن المنتجات
 
-![Search](Screenshots/Search.png)
+![Search](Screenshots/Search-Dashboard.png)
 
 ---
 
 ## ✅ التحقق من صحة البيانات
 
-![Validation](Screenshots/Validation.png)
+![Validation](Screenshots/Validation1.png)
 
 
 
