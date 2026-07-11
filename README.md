@@ -148,5 +148,11 @@ Mini-Store
 
 ![Validation](Screenshots/Validation1.png)
 
+---
 
+## 🌍 دعم تعدد اللغات (Localization)
+
+![Arabic Localization](Screenshots/loc-ar.png) 
+
+![English Localization](Screenshots/loc-en.png) |
 
