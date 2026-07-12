@@ -25,22 +25,35 @@ namespace Mini_Store.Controllers
         // =======================
         // عرض جميع المنتجات
         // =======================
-        public async Task<IActionResult> Index(string searchString)
-        {
-            var products = _context.Products
-                .Include(p => p.Category)
-                .AsQueryable();
+public async Task<IActionResult> Index(string searchString)
+{
+    string user = Request.Cookies["User"] ?? "Not Found";
 
-            if (!string.IsNullOrWhiteSpace(searchString))
-            {
-                products = products.Where(p =>
-                    p.Name.Contains(searchString));
-            }
+    string name = HttpContext.Session.GetString("UserName") ?? "Not Found";
 
-            ViewBag.SearchString = searchString;
+    int? id = HttpContext.Session.GetInt32("UserId");
 
-            return View(await products.ToListAsync());
-        }
+    Console.WriteLine($"UserName: {name}, UserId: {id}");
+    Console.WriteLine(user);
+
+    ViewBag.User = user;
+    ViewBag.UserName = name;
+    ViewBag.UserId = id;
+
+    var products = _context.Products
+        .Include(p => p.Category)
+        .AsQueryable();
+
+    if (!string.IsNullOrWhiteSpace(searchString))
+    {
+        products = products.Where(p =>
+            p.Name.Contains(searchString));
+    }
+
+    ViewBag.SearchString = searchString;
+
+    return View(await products.ToListAsync());
+}
 
         // =======================
         // عرض صفحة الإضافة
@@ -54,7 +67,31 @@ namespace Mini_Store.Controllers
 
             return View();
         }
+// =======================
+// عرض صفحة التعديل
+// =======================
+public async Task<IActionResult> Edit(int? id)
+{
+    if (id == null)
+    {
+        return NotFound();
+    }
 
+    var product = await _context.Products.FindAsync(id);
+
+    if (product == null)
+    {
+        return NotFound();
+    }
+
+    ViewBag.Categories = new SelectList(
+        _context.Categories,
+        "Id",
+        "Name",
+        product.CategoryId);
+
+    return View(product);
+}
         // =======================
         // حفظ التعديل
         // =======================
@@ -108,7 +145,54 @@ namespace Mini_Store.Controllers
 
             return View(product);
         }
+// =======================
+// حفظ المنتج
+// =======================
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> Create(Product product)
+{
+    if (ModelState.IsValid)
+    {
+        if (product.ImageFile != null)
+        {
+            string uploadsFolder = Path.Combine(
+                _webHostEnvironment.WebRootPath,
+                "Images");
 
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+            string extension = Path.GetExtension(product.ImageFile.FileName);
+
+            string fileName = Guid.NewGuid().ToString() + extension;
+
+            string filePath = Path.Combine(uploadsFolder, fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await product.ImageFile.CopyToAsync(stream);
+            }
+
+            product.Image = fileName;
+        }
+
+        _context.Products.Add(product);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
+    }
+
+    ViewBag.Categories = new SelectList(
+        _context.Categories,
+        "Id",
+        "Name",
+        product.CategoryId);
+
+    return View(product);
+}
         // =======================
         // صفحة الحذف
         // =======================
@@ -148,5 +232,6 @@ namespace Mini_Store.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+       
     }
 }

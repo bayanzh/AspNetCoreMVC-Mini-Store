@@ -56,13 +56,23 @@ public class HomeController : Controller
         }
     };
 
-    public IActionResult Index()
+public IActionResult Index()
+{
+    CookieOptions options = new CookieOptions
     {
-        ViewBag.Categories = _categories;
-        ViewBag.Products = _products;
+        Expires = DateTime.Now.AddDays(7)
+    };
 
-        return View();
-    }
+    Response.Cookies.Append("User", "Saad", options);
+
+    HttpContext.Session.SetString("UserName", "أحمد");
+HttpContext.Session.SetInt32("UserId", 105);
+
+    ViewBag.Categories = _categories;
+    ViewBag.Products = _products;
+
+    return View();
+}
 
     public IActionResult Products(int id)
     {

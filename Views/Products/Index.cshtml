@@ -4,6 +4,51 @@
     ViewData["Title"] = "لوحة التحكم";
 }
 
+@if (ViewBag.UserName != null)
+{
+    <div class="session-demo-card">
+
+        <div class="session-demo-header">
+
+            <div class="session-icon">
+                <i class="fa-solid fa-database"></i>
+            </div>
+
+            <div>
+                <h6>بيانات Session</h6>
+                <span>State Management Demo</span>
+            </div>
+
+        </div>
+
+        <div class="session-demo-body">
+
+            <div class="session-item">
+
+                <i class="fa-solid fa-user"></i>
+
+                <div>
+                    <small>اسم المستخدم</small>
+                    <strong>@ViewBag.UserName</strong>
+                </div>
+
+            </div>
+
+            <div class="session-item">
+
+                <i class="fa-solid fa-id-card"></i>
+
+                <div>
+                    <small>رقم المستخدم</small>
+                    <strong>@ViewBag.UserId</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+}
 <div class="container py-5" dir="rtl">
 
     <div class="d-flex justify-content-between align-items-center mb-4">

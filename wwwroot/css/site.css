@@ -780,3 +780,161 @@ body{
 .social i:hover{
     background:var(--accent);
 }
+
+/*=============================
+    Session Demo Card
+=============================*/
+
+.session-demo-card{
+
+    background:linear-gradient(135deg,#0f172a,#1e3a8a);
+
+    color:#fff;
+
+    border-radius:20px;
+
+    padding:22px 28px;
+
+    margin-bottom:28px;
+
+    box-shadow:0 18px 45px rgba(15,23,42,.18);
+
+}
+
+.session-demo-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:22px;
+
+}
+
+.session-icon{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.4rem;
+
+    color:#f59e0b;
+
+}
+
+.session-demo-header h6{
+
+    margin:0;
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+}
+
+.session-demo-header span{
+
+    color:rgba(255,255,255,.75);
+
+    font-size:.85rem;
+
+}
+
+.session-demo-body{
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+.session-item{
+
+    flex:1;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:16px;
+
+    padding:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    transition:.3s;
+
+}
+
+.session-item:hover{
+
+    transform:translateY(-4px);
+
+    background:rgba(255,255,255,.12);
+
+}
+
+.session-item i{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:12px;
+
+    background:#f59e0b;
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.1rem;
+
+}
+
+.session-item small{
+
+    display:block;
+
+    color:rgba(255,255,255,.7);
+
+    margin-bottom:3px;
+
+}
+
+.session-item strong{
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+}
+
+@media(max-width:768px){
+
+.session-demo-body{
+
+    flex-direction:column;
+
+}
+
+}

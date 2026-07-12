@@ -7,6 +7,7 @@ using Mini_Store;
 using Mini_Store.Data;
 using Microsoft.AspNetCore.Identity;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // =====================================
@@ -23,6 +24,7 @@ builder.Services.AddLocalization(options =>
     options.ResourcesPath = "Resources");
 
 builder.Services.AddControllersWithViews()
+
     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
     .AddDataAnnotationsLocalization(options =>
     {
@@ -30,6 +32,7 @@ builder.Services.AddControllersWithViews()
             factory.Create(typeof(SharedResource));
     });
 
+builder.Services.AddSession();
 
 // =====================================
 // Identity
@@ -90,6 +93,8 @@ var localizationOptions =
 app.UseRequestLocalization(localizationOptions.Value);
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthentication();
 
