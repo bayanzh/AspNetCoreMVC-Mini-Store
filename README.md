@@ -77,7 +77,7 @@ Mini-Store
 ```
 --- 
 
-# 📸 Screenshots
+#  Screenshots
 
 ## 🏠 الصفحة الرئيسية
 
@@ -154,5 +154,24 @@ Mini-Store
 
 ![Arabic Localization](Screenshots/loc-ar.png) 
 
-![English Localization](Screenshots/loc-en.png) |
+![English Localization](Screenshots/loc-en.png) 
 
+---
+
+## المصادقة والتفويض (Authentication & Authorization)
+
+#### صفحة تسجيل الدخول 
+
+![Login ](Screenshots/logiUser.png)
+
+#### صفحة إنشاء الحساب 
+
+![Register ](Screenshots/registerUser.png)
+
+#### Admin  
+
+![Register ](Screenshots/adminRole.png)
+
+#### User 
+
+![Register ](Screenshots/userRole.png)
