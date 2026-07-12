@@ -1,9 +1,11 @@
+using Mini_Store.Seed;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Mini_Store;
 using Mini_Store.Data;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,14 @@ builder.Services.AddControllersWithViews()
         options.DataAnnotationLocalizerProvider = (type, factory) =>
             factory.Create(typeof(SharedResource));
     });
+
+
+// =====================================
+// Identity
+// =====================================
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
 // =====================================
 // Supported Languages
@@ -53,6 +63,13 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    await IdentitySeeder.SeedAdminAsync(services);
+}
+
 // =====================================
 // Configure the HTTP request pipeline.
 // =====================================
@@ -73,6 +90,8 @@ var localizationOptions =
 app.UseRequestLocalization(localizationOptions.Value);
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

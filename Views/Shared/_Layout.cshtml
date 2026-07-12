@@ -1,6 +1,9 @@
 ﻿@using System.Globalization
 @using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Identity
 
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @inject IHtmlLocalizer<SharedResource> SharedLocalizer
 
 
@@ -38,6 +41,9 @@
     <link rel="stylesheet"
           href="~/css/site.css"
           asp-append-version="true" />
+    <link rel="stylesheet"
+      href="~/css/account.css"
+      asp-append-version="true" />
 
     <link rel="stylesheet"
           href="~/Mini_Store.styles.css"
@@ -178,7 +184,110 @@
                 </div>
 
             </div>
+<div class="dropdown user-dropdown">
 
+    <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center gap-2"
+            data-bs-toggle="dropdown">
+
+        <i class="fa-regular fa-circle-user fs-5"></i>
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+            @UserManager.GetUserName(User)
+        }
+        else
+        {
+            <span>الحساب</span>
+        }
+
+    </button>
+
+    <ul class="dropdown-menu dropdown-menu-end">
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li>
+                <h6 class="dropdown-header">
+                    @UserManager.GetUserName(User)
+                </h6>
+            </li>
+
+            <li>
+                <a class="dropdown-item" href="#">
+                    <i class="fa-regular fa-user me-2"></i>
+                    الملف الشخصي
+                </a>
+            </li>
+
+            <li>
+                <a class="dropdown-item" href="#">
+                    <i class="fa-solid fa-gear me-2"></i>
+                    الإعدادات
+                </a>
+            </li>
+
+            <li>
+                @if (User.IsInRole("Admin"))
+{
+    <a asp-controller="Products"
+       asp-action="Index"
+       class="dropdown-item">
+
+        لوحة التحكم
+
+    </a>
+}
+            </li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            <li>
+                <form asp-controller="Account"
+                      asp-action="Logout"
+                      method="post">
+
+                    <button type="submit"
+                            class="dropdown-item text-danger">
+
+                        <i class="fa-solid fa-right-from-bracket me-2"></i>
+
+                        تسجيل الخروج
+
+                    </button>
+
+                </form>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a class="dropdown-item"
+                   asp-controller="Account"
+                   asp-action="Login">
+
+                    <i class="fa-solid fa-right-to-bracket me-2"></i>
+
+                    تسجيل الدخول
+
+                </a>
+            </li>
+
+            <li>
+                <a class="dropdown-item"
+                   asp-controller="Account"
+                   asp-action="Register">
+
+                    <i class="fa-solid fa-user-plus me-2"></i>
+
+                    إنشاء حساب
+
+                </a>
+            </li>
+        }
+
+    </ul>
+
+</div>
         </div>
 
     </nav>

@@ -1,0 +1,137 @@
+@model Mini_Store.ViewModels.LoginViewModel
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{
+    ViewData["Title"] = SharedLocalizer["Login"];
+}
+
+<div class="account-page">
+
+    <div class="account-card">
+
+        <div class="account-logo">
+            <i class="fa-solid fa-store"></i>
+        </div>
+
+        <h2 class="account-title">
+            @SharedLocalizer["Login"]
+        </h2>
+
+        <p class="account-subtitle">
+            @SharedLocalizer["LoginDescription"]
+        </p>
+
+        <form asp-action="Login" method="post">
+
+            <div asp-validation-summary="ModelOnly"
+                 class="validation-summary-errors">
+            </div>
+
+            <input asp-for="ReturnUrl" type="hidden" />
+
+            <label asp-for="Email" class="form-label"></label>
+
+            <div class="input-group">
+
+                <input asp-for="Email"
+                       class="form-control"
+                       placeholder="@SharedLocalizer["EmailPlaceholder"]" />
+
+                <span class="input-group-text">
+                    <i class="fa-solid fa-envelope"></i>
+                </span>
+
+            </div>
+
+            <span asp-validation-for="Email"
+                  class="field-validation-error"></span>
+
+            <label asp-for="Password"
+                   class="form-label mt-3"></label>
+
+            <div class="input-group">
+
+                <input asp-for="Password"
+                       id="passwordInput"
+                       class="form-control" />
+
+                <button class="input-group-text"
+                        type="button"
+                        id="togglePassword">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                </button>
+
+            </div>
+
+            <span asp-validation-for="Password"
+                  class="field-validation-error"></span>
+
+            <div class="form-check mt-4">
+
+                <input asp-for="RememberMe"
+                       class="form-check-input" />
+
+                <label asp-for="RememberMe"
+                       class="form-check-label"></label>
+
+            </div>
+
+            <button type="submit"
+                    class="account-btn">
+
+                @SharedLocalizer["Login"]
+
+            </button>
+
+        </form>
+
+        <div class="account-divider">
+            <span>@SharedLocalizer["Or"]</span>
+        </div>
+
+        <div class="account-footer">
+
+            @SharedLocalizer["NoAccount"]
+
+            <a asp-action="Register">
+                @SharedLocalizer["Register"]
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts{
+
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordInput = document.getElementById("passwordInput");
+
+        togglePassword.addEventListener("click", function () {
+
+            const type =
+                passwordInput.type === "password"
+                ? "text"
+                : "password";
+
+            passwordInput.type = type;
+
+            this.innerHTML =
+                type === "password"
+                ? '<i class="fa-solid fa-eye"></i>'
+                : '<i class="fa-solid fa-eye-slash"></i>';
+
+        });
+
+    </script>
+
+}

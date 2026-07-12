@@ -153,4 +153,56 @@
     <value>جميع الحقوق محفوظة</value>
     <comment/>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+    <comment/>
+  </data>
+  <data name="LoginDescription" xml:space="preserve">
+    <value>سجل الدخول للوصول إلى حسابك</value>
+    <comment/>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>إنشاء حساب</value>
+    <comment/>
+  </data>
+  <data name="RegisterDescription" xml:space="preserve">
+    <value>أنشئ حسابًا جديدًا للبدء باستخدام المتجر</value>
+    <comment/>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>إنشاء الحساب</value>
+    <comment/>
+  </data>
+  <data name="NoAccount" xml:space="preserve">
+    <value>ليس لديك حساب؟</value>
+    <comment/>
+  </data>
+  <data name="AlreadyHaveAccount" xml:space="preserve">
+    <value>لديك حساب بالفعل؟</value>
+    <comment/>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>أو</value>
+    <comment/>
+  </data>
+  <data name="EmailPlaceholder" xml:space="preserve">
+    <value>أدخل البريد الإلكتروني</value>
+    <comment/>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+    <comment/>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+    <comment/>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+    <comment/>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>تذكرني</value>
+    <comment/>
+  </data>
 </root>

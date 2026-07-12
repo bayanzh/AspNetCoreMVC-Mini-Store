@@ -153,4 +153,56 @@
     <value>All Rights Reserved.</value>
     <comment/>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+    <comment/>
+  </data>
+  <data name="LoginDescription" xml:space="preserve">
+    <value>Sign in to access your account</value>
+    <comment/>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+    <comment/>
+  </data>
+  <data name="RegisterDescription" xml:space="preserve">
+    <value>Create a new account to start shopping</value>
+    <comment/>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>Create Account</value>
+    <comment/>
+  </data>
+  <data name="NoAccount?" xml:space="preserve">
+    <value>Don't have an account</value>
+    <comment/>
+  </data>
+  <data name="AlreadyHaveAccount?" xml:space="preserve">
+    <value>Already have an account</value>
+    <comment/>
+  </data>
+  <data name="or" xml:space="preserve">
+    <value>OR</value>
+    <comment/>
+  </data>
+  <data name="EmailPlaceholder" xml:space="preserve">
+    <value>Enter your email</value>
+    <comment/>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+    <comment/>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+    <comment/>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+    <comment/>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember Me</value>
+    <comment/>
+  </data>
 </root>
